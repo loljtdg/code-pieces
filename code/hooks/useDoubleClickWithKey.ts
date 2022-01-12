@@ -1,9 +1,9 @@
 import { usePersistCallback } from "./usePersistCallback";
 import { useRef } from "react";
 
-export interface ClickHandlers<T extends any[]> {
-  onSingleClick?: (...params: T) => void;
-  onDoubleClick?: (...params: T) => void;
+export interface ClickHandlers {
+  onSingleClick?: () => void;
+  onDoubleClick?: () => void;
 }
 
 export type ClickOptions = {
@@ -22,7 +22,7 @@ const defaultOption: ClickOptions = {
 };
 
 export const useDoubleClickWithKey = <T extends any[]>(
-  { onSingleClick, onDoubleClick }: ClickHandlers<T>,
+  { onSingleClick, onDoubleClick }: ClickHandlers,
   {
     timeRange = defaultOption.timeRange,
     debounce = defaultOption.debounce,
